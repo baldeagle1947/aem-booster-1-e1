@@ -1,0 +1,12 @@
+SQL:
+SELECT * FROM [nt:base] AS s WHERE CONTAINS(s.jcr:title, 'Retail')
+
+SELECT * FROM [cq:Page] AS s WHERE ISDESCENDANTNODE(s,'/content')
+
+SELECT * FROM [cq:Page] WHERE NAME() = 'content'
+
+SELECT p.* FROM [cq:Page] AS p WHERE p.[jcr:created] >= CAST('2017-11-01T00:00:00.000Z' AS DATE)
+
+SQL2
+SELECT parent.* FROM [cq:Page] AS parent INNER JOIN [nt:base] AS child ON ISCHILDNODE(child,parent) WHERE ISDESCENDANTNODE(parent, '/content') AND child.[cq:template] = '/libs/cq/personalization/templates/campaign'
+
